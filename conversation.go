@@ -8,7 +8,7 @@ import (
 )
 
 //APIVersion of Watson conversation service.
-const APIVersion = "2017-05-26"
+const APIVersion = "2019-02-28"
 
 //Conversation is the connection to Watson conversation service.
 type Conversation struct {
@@ -73,7 +73,8 @@ func (c *Conversation) Message(r MessageRequest) (MessageResponse, error) {
 
 func (c *Conversation) url() (string, error) {
 	return fmt.Sprintf(
-		"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/%s/message?version=%s",
+		//"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/%s/message?version=%s",
+		"https://gateway.watsonplatform.net/assistant/api/v1/workspaces/%s/message?version=%s",
 		c.cred.WorkspaceID, APIVersion), nil
 }
 
